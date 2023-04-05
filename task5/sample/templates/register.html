@@ -1,0 +1,57 @@
+{% extends 'base.html' %}
+{% block content %}
+        <div class="login-body">
+
+            <form action="register" method="post">
+                {% csrf_token %}
+              <div class="container">
+                  <h2>Register Form</h2>
+                <label for="first_name"><b>First Name</b></label>
+                <input type='text' name='first_name' id="first_name" placeholder='First Name'><br>
+
+                <label for="last_name"><b>Last Name</b></label>
+                <input type='text' name='last_name' id="last_name" placeholder='Last Name'><br>
+
+                <label for="username"><b>User ID</b></label>
+                <input type='text' name='username' id="username" placeholder='User ID'><br>
+
+                <label for="email"><b>Email ID</b></label>
+                <input type='email' name='email' id="email" placeholder='Email ID'><br>
+
+                <label for="password"><b>Password</b></label>
+                <input type='password' name='password1' id="password1" placeholder='Password'><br>
+
+                <label for="password"><b>Confirm Password</b></label>
+                <input type='password' name='password2' id="password2" placeholder='Confirm Password'><br>
+
+                <button type="submit">Register</button>
+                <label>
+                  <input type="checkbox" checked="checked" name="remember"> Remember me
+                </label>
+              </div>
+
+              <div class="container" style="background-color:#f1f1f1">
+                <button type="button" class="cancelbtn" onclick="clearFields()">Clear</button>
+<!--                <input type="button" onclick="clearFields()" value="Clear">-->
+                <span class="psw">Forgot <a href="#">password?</a></span>
+                  <div class="messages">
+                    {% for message in messages%}
+                    <h3>{{message}}</h3>
+                    {% endfor %}
+                </div>
+              </div>
+
+            </form>
+        </div>
+
+<script type="text/javascript">
+function clearFields() {
+    document.getElementById("first_name").value=""
+    document.getElementById("last_name").value=""
+    document.getElementById("username").value=""
+    document.getElementById("email").value=""
+    document.getElementById("password1").value=""
+    document.getElementById("password2").value=""
+}
+</script>
+{% endblock %}

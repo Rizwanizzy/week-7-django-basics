@@ -1,0 +1,51 @@
+{% extends 'base.html' %}
+{% block content %}
+        <div class="login-body">
+
+            <form action="login" method="post">
+                {% csrf_token %}
+              <div class="container">
+                  <h2>Login Form</h2>
+                <label for="username"><b>Username</b></label>
+                <input type="text" placeholder="Enter Username" id="username" name="username" required>
+
+                <label for="password"><b>Password</b></label>
+                <input type="password" placeholder="Enter Password" id="password" name="password" required>
+
+                <button type="submit">Login</button>
+                <label>
+                  <input type="checkbox" checked="checked" name="remember"> Remember me
+                </label>
+              </div>
+
+              <div class="container" style="background-color:#f1f1f1">
+                <button type="button" class="cancelbtn" onclick="clearFields()">Clear</button>
+<!--                <input type="button" onclick="clearFields()" value="Clear">-->
+                <span class="psw">Forgot <a href="#">password?</a></span>
+                  <div class="messages">
+                    {% for message in messages%}
+                    <h3>{{message}}</h3>
+                    {% endfor %}
+                </div>
+              </div>
+
+            </form>
+        </div>
+<script type="text/javascript">
+function clearFields() {
+    document.getElementById("username").value=""
+    document.getElementById("password").value=""
+}
+</script>
+{% endblock %}
+
+<!--        <form action='login' method='post'>-->
+<!--            {% csrf_token %}-->
+<!--            <input type='text' name='username' placeholder='username'><br>-->
+<!--            <input type='password' name='password' placeholder='password'><br>-->
+<!--            <input type='Submit'>-->
+<!--        </form>-->
+
+
+
+

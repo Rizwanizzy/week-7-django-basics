@@ -1,0 +1,39 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<div class="container">
+    <h1>Welcome to your home page!</h1>
+    <p>Here's some content for your users to see.</p>
+    <table class="table">
+        <thead>
+            <tr>
+                <th>#</th>
+                <th>First Name</th>
+                <th>Last Name</th>
+                <th>Username</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>1</td>
+                <td>John</td>
+                <td>Doe</td>
+                <td>@johndoe</td>
+            </tr>
+            <tr>
+                <td>2</td>
+                <td>Jane</td>
+                <td>Doe</td>
+                <td>@janedoe</td>
+            </tr>
+            <tr>
+                <td>3</td>
+                <td>Bob</td>
+                <td>Smith</td>
+                <td>@bobsmith</td>
+            </tr>
+        </tbody>
+    </table>
+</div>
+
+{% endblock %}
