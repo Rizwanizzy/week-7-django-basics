@@ -1,5 +1,6 @@
 {% extends 'base.html' %}
 {% block content %}
+<br><br>
         <div class="login-body">
 
             <form action="login" method="post">
@@ -24,7 +25,7 @@
                 <span class="psw">Forgot <a href="#">password?</a></span>
                   <div class="messages">
                     {% for message in messages%}
-                    <h3>{{message}}</h3>
+                    <h4>{{message}}</h4>
                     {% endfor %}
                 </div>
               </div>
@@ -39,12 +40,6 @@ function clearFields() {
 </script>
 {% endblock %}
 
-<!--        <form action='login' method='post'>-->
-<!--            {% csrf_token %}-->
-<!--            <input type='text' name='username' placeholder='username'><br>-->
-<!--            <input type='password' name='password' placeholder='password'><br>-->
-<!--            <input type='Submit'>-->
-<!--        </form>-->
 
 
 

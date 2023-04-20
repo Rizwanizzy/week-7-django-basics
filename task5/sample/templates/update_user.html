@@ -1,0 +1,58 @@
+{% extends 'base.html' %}
+{% block content %}
+<br><br>
+        <div class="login-body">
+
+            <form action="" method="post">
+                {% csrf_token %}
+              <div class="container">
+                  <h2>Update Details</h2>
+
+                <label for="username"><b>User ID</b></label>
+                <input type='text' value="{{user.username}}" name='username' id="username" placeholder='User ID'><br>  
+
+                <label for="first_name"><b>First Name</b></label>
+                <input type='text' value="{{user.first_name}}" name='first_name' id="first_name" placeholder='First Name'><br>
+
+                <label for="last_name"><b>Last Name</b></label>
+                <input type='text' value="{{user.last_name}}" name='last_name' id="last_name" placeholder='Last Name'><br>
+
+                <label for="email"><b>Email ID</b></label>
+                <input type='email' value="{{user.email}}" name='email' id="email" placeholder='Email ID'><br>
+
+                {% comment %} <label for="password"><b>Password</b></label>
+                <input type='password' name='password1' id="password1" placeholder='Password'><br>
+
+                <label for="password"><b>Confirm Password</b></label>
+                <input type='password' name='password2' id="password2" placeholder='Confirm Password'><br> {% endcomment %}
+
+                <button type="submit">Save</button>
+                
+              </div>
+
+              <div class="container" style="background-color:#f1f1f1;text-align:center">
+                <input type="button" class="btn btn-danger" onclick="clearFields()" value="Clear">
+                <a href="{% url 'admin_home' %}" class="btn btn-warning">Cancel</a>
+               {% comment %} <input type="button" onclick="clearFields()" value="Clear"> {% endcomment %}
+                
+                  <div class="messages">
+                    {% for message in messages%}
+                    <h4>{{message}}</h4>
+                    {% endfor %}
+                </div>
+              </div>
+
+            </form>
+        </div>
+
+<script type="text/javascript">
+function clearFields() {
+    document.getElementById("first_name").value=""
+    document.getElementById("last_name").value=""
+    document.getElementById("username").value=""
+    document.getElementById("email").value=""
+    document.getElementById("password1").value=""
+    document.getElementById("password2").value=""
+}
+</script>
+{% endblock %}

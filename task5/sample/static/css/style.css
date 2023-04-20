@@ -44,7 +44,7 @@ form {
 .messages{
     text-align: center;
 }
-input[type=text], input[type=password] , input[type=mail]{
+input[type=text], input[type=password] , input[type=email]{
   width: 100%;
   padding: 12px 20px;
   margin: 8px 0;
@@ -107,7 +107,7 @@ span.psw {
 html,
 body {
 	font-family: 'Ubuntu', sans-serif;
-	font-size: 100%;
+	font-size: 115%;
 	background: #fff;
 }
 
@@ -171,7 +171,7 @@ ul.navig li a:hover {
 }
 
 .search-bar input[type="submit"] {
-	width: 20%;
+	width: 80%;
 	padding: 10px;
 	background: #ff7105 url(../images/search.png)no-repeat 15px;
 	outline: none;
@@ -461,7 +461,6 @@ ul#filters {
 .b-link-stripe:hover .b-line {
 	opacity: 1;
 }
-}
 
 #filters {
 	margin: 3% 0;
@@ -536,6 +535,7 @@ div#portfoliolist {
 	position: relative !important;
 	cursor: pointer;
 }
+
 
 .portfolio img {
 	max-width: 100%;
@@ -661,8 +661,7 @@ div#portfoliolist {
 }
 
 .more a {
-	font-size;
-	0.875em;
+	font-size:0.875em;
 	color: #fff;
 	background: #ff7105;
 	padding: 10px 15px;
@@ -973,7 +972,7 @@ ul.game-list li a:hover {
 	box-shadow: 0 0 1px #000;
 }
 
-.view a.info: hover {
+.view a.info:hover {
 	-webkit-box-shadow: 0 0 5px #000;
 	-moz-box-shadow: 0 0 5px #000;
 	box-shadow: 0 0 5px #000;
@@ -1118,7 +1117,8 @@ ul.game-list li a:hover {
 
 .post-details p {
 	font-size: 1em;
-	color: #3c3a3e font-weight:100;
+	color: #3c3a3e;
+	font-weight:100;
 }
 
 .post-details p a {

@@ -1,0 +1,48 @@
+{% extends 'base.html' %}
+{% block content %}
+<br><br>
+        <div class="login-body">
+
+            <form action="add_user" method="post">
+                {% csrf_token %}
+              <div class="container">
+                  <h2>Add New User</h2>
+                <label for="username"><b>Username</b></label>
+                <input type="text" placeholder="Enter Username" id="username" name="username" required>
+
+                <label for="password"><b>Password</b></label>
+                <input type="password" placeholder="Enter Password" id="password1" name="password1" required>
+
+                <label for="password"><b>Confirm Password</b></label>
+                <input type="password" placeholder="Confirm Password" id="password2" name="password2" required>
+
+                <button type="submit">Create</button>
+              </div>
+
+              <div class="container" style="background-color:#f1f1f1;text-align:center">
+                <input type="button" class="btn btn-danger" onclick="clearFields()" value="Clear">
+                <a href="admin_home" class="btn btn-warning">Cancel</a>
+               {% comment %} <input type="button" onclick="clearFields()" value="Clear"> {% endcomment %}
+                
+                  <div class="messages">
+                    {% for message in messages%}
+                    <h4>{{message}}</h4>
+                    {% endfor %}
+                </div>
+              </div>
+
+            </form>
+        </div>
+<script type="text/javascript">
+function clearFields() {
+    document.getElementById("username").value=""
+    document.getElementById("password1").value=""
+    document.getElementById("password2").value=""
+}
+</script>
+{% endblock %}
+
+
+
+
+

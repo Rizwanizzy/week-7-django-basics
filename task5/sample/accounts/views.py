@@ -8,6 +8,8 @@ from django.contrib import messages
 def register(request):
     if 'username' in request.session:
         return redirect('/')
+    if 'admin' in request.session:
+        return redirect('admin_home')
     if request.method == 'POST':
         first_name = request.POST['first_name']
         last_name = request.POST['last_name']
@@ -40,11 +42,13 @@ def register(request):
 def login(request):
     if 'username' in request.session:
         return redirect('/')
+    if 'admin' in request.session:
+        return redirect('admin_home')
     if request.method == 'POST':
         username = request.POST['username']
         password = request.POST['password']
         user = auth.authenticate(username=username, password=password)
-        if user:
+        if user and not user.is_superuser:
             request.session['username']=username
             auth.login(request, user)
             return redirect('/')
@@ -56,7 +60,7 @@ def login(request):
 
 
 def logout(request):
-    if 'username' in request.session:
+    if 'username' in request.session or 'admin' in request.session:
         request.session.flush()
     auth.logout(request)
     return redirect('login')

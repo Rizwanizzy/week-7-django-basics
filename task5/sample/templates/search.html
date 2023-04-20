@@ -1,0 +1,55 @@
+{% extends 'base.html' %}
+{% block content %}
+{% comment %} ---------------------------------------------------- {% endcomment %}
+<style>
+    .user-table{
+        width:60%;
+        margin:auto;
+
+    }
+    table {
+        border: 1px solid
+      }
+      th{
+        font-size:20px;
+      }
+      td{
+        font-size:15px;
+      }
+</style>
+<br><br>
+<div class="user-table">
+    <h1>User List</h1>
+    <table class="table table-striped table-dark">
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>Username</th>
+                <th>Email</th>
+                <th>First Name</th>
+                <th>Last Name</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for user in all_users %}
+            <tr>
+                <td>{{ user.id }}</td>
+                <td>{{ user.username }}</td>
+                <td>{{ user.email }}</td>
+                <td>{{ user.first_name }}</td>
+                <td>{{ user.last_name }}</td>
+                <td>
+                    <a href="update_user/{{user.id}}" class="btn btn-warning">Update</a>&nbsp;&nbsp;
+                    <a href="delete_user/{{user.id}}" class="btn btn-danger">Delete</a>
+                </td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+    <a href="{% url 'add_user' %}" class="btn btn-success" style="font-size:15px">Add New User</a>
+</div>   
+
+
+{% comment %} ---------------------------------------------------- {% endcomment %}
+{% endblock %}
